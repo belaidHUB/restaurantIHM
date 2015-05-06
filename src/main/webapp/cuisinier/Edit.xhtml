@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CuisinierEditDlg" widgetVar="CuisinierEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCuisinierTitle}">
+            <h:form id="CuisinierEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cuisinierController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCuisinierLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{cuisinierController.selected.id}" title="#{bundle.EditCuisinierTitle_id}" required="true" requiredMessage="#{bundle.EditCuisinierRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditCuisinierLabel_idEmploye}" for="idEmploye" />
+                        <p:inputText id="idEmploye" value="#{cuisinierController.selected.idEmploye}" title="#{bundle.EditCuisinierTitle_idEmploye}" required="true" requiredMessage="#{bundle.EditCuisinierRequiredMessage_idEmploye}"/>
+                        <p:outputLabel value="#{bundle.EditCuisinierLabel_notation}" for="notation" />
+                        <p:inputText id="notation" value="#{cuisinierController.selected.notation}" title="#{bundle.EditCuisinierTitle_notation}" required="true" requiredMessage="#{bundle.EditCuisinierRequiredMessage_notation}"/>
+                        <p:outputLabel value="#{bundle.EditCuisinierLabel_nbrPlat}" for="nbrPlat" />
+                        <p:inputText id="nbrPlat" value="#{cuisinierController.selected.nbrPlat}" title="#{bundle.EditCuisinierTitle_nbrPlat}" required="true" requiredMessage="#{bundle.EditCuisinierRequiredMessage_nbrPlat}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cuisinierController.update}" value="#{bundle.Save}" update="display,:CuisinierListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CuisinierEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CuisinierEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

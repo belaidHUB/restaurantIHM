@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServeurViewDlg" widgetVar="ServeurViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewServeurTitle}">
+            <h:form id="ServeurViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serveurController.selected != null}">
+                        <h:outputText value="#{bundle.ViewServeurLabel_id}"/>
+                        <h:outputText value="#{serveurController.selected.id}" title="#{bundle.ViewServeurTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewServeurLabel_idZone}"/>
+                        <h:outputText value="#{serveurController.selected.idZone}" title="#{bundle.ViewServeurTitle_idZone}"/>
+                        <h:outputText value="#{bundle.ViewServeurLabel_idEmploye}"/>
+                        <h:outputText value="#{serveurController.selected.idEmploye}" title="#{bundle.ViewServeurTitle_idEmploye}"/>
+                        <h:outputText value="#{bundle.ViewServeurLabel_notation}"/>
+                        <h:outputText value="#{serveurController.selected.notation}" title="#{bundle.ViewServeurTitle_notation}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ServeurViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

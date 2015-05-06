@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CuisinierViewDlg" widgetVar="CuisinierViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCuisinierTitle}">
+            <h:form id="CuisinierViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cuisinierController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCuisinierLabel_id}"/>
+                        <h:outputText value="#{cuisinierController.selected.id}" title="#{bundle.ViewCuisinierTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCuisinierLabel_idEmploye}"/>
+                        <h:outputText value="#{cuisinierController.selected.idEmploye}" title="#{bundle.ViewCuisinierTitle_idEmploye}"/>
+                        <h:outputText value="#{bundle.ViewCuisinierLabel_notation}"/>
+                        <h:outputText value="#{cuisinierController.selected.notation}" title="#{bundle.ViewCuisinierTitle_notation}"/>
+                        <h:outputText value="#{bundle.ViewCuisinierLabel_nbrPlat}"/>
+                        <h:outputText value="#{cuisinierController.selected.nbrPlat}" title="#{bundle.ViewCuisinierTitle_nbrPlat}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CuisinierViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PlatEditDlg" widgetVar="PlatEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPlatTitle}">
+            <h:form id="PlatEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{platController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPlatLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{platController.selected.id}" title="#{bundle.EditPlatTitle_id}" required="true" requiredMessage="#{bundle.EditPlatRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditPlatLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{platController.selected.nom}" title="#{bundle.EditPlatTitle_nom}" required="true" requiredMessage="#{bundle.EditPlatRequiredMessage_nom}"/>
+                        <p:outputLabel value="#{bundle.EditPlatLabel_prix}" for="prix" />
+                        <p:inputText id="prix" value="#{platController.selected.prix}" title="#{bundle.EditPlatTitle_prix}" required="true" requiredMessage="#{bundle.EditPlatRequiredMessage_prix}"/>
+                        <p:outputLabel value="#{bundle.EditPlatLabel_image}" for="image" />
+                        <p:inputText id="image" value="#{platController.selected.image}" title="#{bundle.EditPlatTitle_image}" required="true" requiredMessage="#{bundle.EditPlatRequiredMessage_image}"/>
+                        <p:outputLabel value="#{bundle.EditPlatLabel_idCategorie}" for="idCategorie" />
+                        <p:selectOneMenu id="idCategorie" value="#{platController.selected.idCategorie}" required="true" requiredMessage="#{bundle.EditPlatRequiredMessage_idCategorie}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{categorieplatController.itemsAvailableSelectOne}"
+                                           var="idCategorieItem"
+                                           itemValue="#{idCategorieItem}"
+                                           itemLabel="#{idCategorieItem.designation}"
+                                           />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{platController.update}" value="#{bundle.Save}" update="display,:PlatListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PlatEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PlatEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

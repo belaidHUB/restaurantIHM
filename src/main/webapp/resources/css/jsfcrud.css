@@ -1,0 +1,59 @@
+.ui-widget {
+    font-size: 12px !important;
+}
+.ui-layout-north {
+    z-index: 20 !important;
+    overflow: visible !important;;
+}
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible !important;
+}
+.ui-widget-header {
+    text-align: center;
+    text-transform: uppercase;
+}
+.ui-button {
+    margin-top: 10px !important;
+    color: #31b0d5;
+}
+
+.ui-widget-content {
+    border: none;
+}
+
+.imagebtn{
+    
+     background-image:url(../images/LogoRestaurant.png);
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    
+    /*background-image:-webkit-linear-gradient(top, #02ABFE, #02ABFE);*/
+}
+
+/*body .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+   color: background;
+   text-shadow: 0 0px 0px rgba(0, 0, 0, 0); 
+  cursor: pointer;
+  background-color: #ffffff;
+  background-image: none;
+  
+  background-repeat: repeat-x;
+  border: 1px solid;
+  border-radius: 0px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background-color: #ffffff;
+}*/
+/*body{
+    background-image: url("images/pat.jpg");
+}
+
+.ui-widget-content{
+    background: none;
+}
+
+.ui-menu.ui-widget{
+    background: none;
+*/

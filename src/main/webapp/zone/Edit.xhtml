@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ZoneEditDlg" widgetVar="ZoneEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditZoneTitle}">
+            <h:form id="ZoneEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{zoneController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditZoneLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{zoneController.selected.id}" title="#{bundle.EditZoneTitle_id}" required="true" requiredMessage="#{bundle.EditZoneRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditZoneLabel_libelle}" for="libelle" />
+                        <p:inputText id="libelle" value="#{zoneController.selected.libelle}" title="#{bundle.EditZoneTitle_libelle}" required="true" requiredMessage="#{bundle.EditZoneRequiredMessage_libelle}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{zoneController.update}" value="#{bundle.Save}" update="display,:ZoneListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ZoneEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ZoneEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
